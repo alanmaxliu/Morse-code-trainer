@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Trainer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="language-switch">
+                <button id="lang-en" class="lang-btn active">EN</button>
+                <span class="separator">/</span>
+                <button id="lang-zh" class="lang-btn">繁中</button>
+            </div>
+            <h1 data-i18n="title">Morse Code Trainer</h1>
+            <p data-i18n="subtitle">Master the art of CW</p>
+        </header>
+
+        <main>
+            <div class="display-section">
+                <div id="morse-display" class="morse-text blurred">
+                    <!-- Generated text will appear here -->
+                    <span class="placeholder" data-i18n="placeholder">Press Generate to Start</span>
+                </div>
+                <div class="display-controls">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="show-answer-toggle">
+                        <span class="slider"></span>
+                        <span class="label-text" data-i18n="show_answer">Show Answer</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="control-group">
+                    <label><span data-i18n="mode">Training Mode</span></label>
+                    <div class="mode-switch">
+                        <button id="mode-en" class="mode-btn active" data-i18n="mode_en">Letters (EN)</button>
+                        <button id="mode-zh" class="mode-btn" data-i18n="mode_zh">Numbers (ZH Code)</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="wpm-slider"><span data-i18n="speed">Speed (WPM)</span>: <span
+                            id="wpm-value">20</span></label>
+                    <input type="range" id="wpm-slider" min="5" max="50" value="20">
+                </div>
+
+                <div class="control-group">
+                    <label for="groups-slider"><span data-i18n="groups">Groups</span>: <span
+                            id="groups-value">1</span></label>
+                    <input type="range" id="groups-slider" min="1" max="300" value="1">
+                </div>
+
+                <div class="control-group">
+                    <label for="freq-slider"><span data-i18n="tone">Tone (Hz)</span>: <span
+                            id="freq-value">600</span></label>
+                    <input type="range" id="freq-slider" min="400" max="1000" value="600">
+                </div>
+
+                <div class="control-group">
+                    <label for="volume-slider"><span data-i18n="volume">Volume</span>: <span
+                            id="volume-value">80</span>%</label>
+                    <input type="range" id="volume-slider" min="0" max="100" value="80">
+                </div>
+
+                <div class="control-group">
+                    <label for="noise-slider"><span data-i18n="noise_level">Noise Level</span>: <span
+                            id="noise-value">0</span>%</label>
+                    <input type="range" id="noise-slider" min="0" max="100" value="0">
+                </div>
+
+                <div class="control-group checkbox-group">
+                    <label class="toggle-switch small">
+                        <input type="checkbox" id="noise-toggle">
+                        <span class="slider"></span>
+                        <span class="label-text" data-i18n="enable_noise">Enable Noise</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="btn-generate" class="btn secondary" data-i18n="generate">Generate New</button>
+                <button id="btn-play" class="btn primary" data-i18n="play">Play</button>
+                <button id="btn-stop" class="btn danger" disabled data-i18n="stop">Stop</button>
+            </div>
+
+            <footer class="app-footer">
+                <p>劉建良@2025 免費軟體</p>
+            </footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
